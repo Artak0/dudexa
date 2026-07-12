@@ -1,0 +1,157 @@
+export type Language = "en" | "tr" | "zh";
+export type ProductId = "Mood" | "Magnet" | "Pro202" | "Fli-X" | "Prolit";
+
+export const languageOptions: { id: Language; short: string; label: string }[] = [
+  { id: "en", short: "EN", label: "English" },
+  { id: "tr", short: "TR", label: "Türkçe" },
+  { id: "zh", short: "中文", label: "简体中文" },
+];
+
+export const localizedCopy = {
+  en: {
+    locale: "en-US",
+    navigation: { science: "Science", products: "Products", planner: "Planner", knowledge: "Knowledge", contact: "Contact", startProject: "Start a project" },
+    transition: { message: "Opening the Knowledge Center" },
+    hero: {
+      eyebrow: "Engineering attraction since 2008",
+      titleLine1: "Science",
+      titleLine2: "to insects.",
+      description: "Professional flying-insect control, engineered in Germany to work hard—and look remarkable doing it.",
+      liveSimulation: "Live capture simulation",
+      interceptions: "interceptions",
+      model: "Mood · 2 × 15W · Stainless steel",
+    },
+    principle: {
+      sectionLabel: "The principle",
+      lead: "We don’t chase insects.",
+      emphasis: "We design the destination.",
+      attract: { title: "Attract", description: "UV light draws flying insects away from people, food and production zones." },
+      capture: { title: "Capture", description: "High-tack, UV-resistant glue boards create a clean and discreet interception point." },
+      control: { title: "Control", description: "Purpose-built formats fit hospitality, retail and industrial environments." },
+    },
+    productsSection: {
+      sectionLabel: "Product system",
+      title: "Built for the places that can’t compromise.",
+      description: "Five distinct tools. One standard of intelligent flying-insect control.",
+      view: "View product",
+    },
+    products: {
+      Mood: { type: "Wall mounted", details: "Stainless steel · 2 × 15W Dudexa UV lamps", tag: "Hospitality" },
+      Magnet: { type: "Wall mounted", details: "Stainless steel · 2 × 15W Dudexa UV lamps", tag: "Front of house" },
+      Pro202: { type: "Ceiling suspended", details: "2 × 18W UV lamps · 30 × 60 cm glue board", tag: "Retail" },
+      "Fli-X": { type: "Wall mounted", details: "Painted aluminium · 2 × 15W Dudexa UV lamps", tag: "Commercial" },
+      Prolit: { type: "Industrial", details: "304 stainless steel · 2 × 18W Dudexa UV lamps", tag: "Production" },
+    },
+    ecosystem: {
+      sectionLabel: "The ecosystem",
+      title: "More than a light trap.",
+      description: "A complete working system, from the attraction source to ongoing equipment management.",
+      glueBoards: { category: "Consumable / 01", title: "UV-resistant glue boards", description: "High tackiness and long life in 30 × 60 cm, 30 × 54 cm and additional formats.", action: "Request sizes" },
+      uvLamps: { category: "Component / 02", title: "Long-life UV lamps", description: "Engineered for sustained attraction and dependable performance inside professional ILTs.", action: "Match a lamp" },
+      tracquipment: { category: "Platform / 03", title: "Tracquipment", description: "Track insect light traps and rental contracts with a purpose-built digital tool.", action: "Visit platform" },
+    },
+    contact: {
+      location: "Düsseldorf, Germany",
+      title: "Let’s make your space a no-fly zone.",
+      description: "Tell us about your site, business or technical challenge. Dudexa’s team will help you find the right system.",
+      officeHours: "Office hours",
+      nameLabel: "Your name", namePlaceholder: "Jane Doe",
+      emailLabel: "Work email", emailPlaceholder: "jane@company.com",
+      messageLabel: "Tell us about your site", messagePlaceholder: "Type of space, approximate size, and what you need…",
+      submit: "Send inquiry", sending: "Sending…", success: "Thank you. Your inquiry reached the Dudexa team.", error: "We could not send it. Please email info@dudexa.com.",
+      emailNotice: "Your inquiry is securely recorded for the Dudexa sales team.",
+    },
+    footer: { statement: "Flying insect control technologies.\nDesigned with science.", email: "Email" },
+    accessibility: {
+      home: "Dudexa home", primaryNavigation: "Primary navigation", exploreProducts: "Explore products",
+      captureStage: "Animated demonstration of insects attracted to a light trap",
+      productImage: "Dudexa {name} insect light trap", askAboutProduct: "Ask about Dudexa {name}", languageSelector: "Choose language",
+    },
+  },
+  tr: {
+    locale: "tr-TR",
+    navigation: { science: "Bilim", products: "Ürünler", planner: "Planlayıcı", knowledge: "Bilgi Merkezi", contact: "İletişim", startProject: "Projenizi başlatın" },
+    transition: { message: "Bilgi Merkezi açılıyor" },
+    hero: {
+      eyebrow: "2008'den beri çekim gücünü mühendislikle tasarlıyoruz",
+      titleLine1: "Bilim",
+      titleLine2: "böceklere karşı.",
+      description: "Profesyonel uçan haşere kontrolü; güçlü performans ve etkileyici görünüm için Almanya'da geliştirildi.",
+      liveSimulation: "Canlı yakalama simülasyonu", interceptions: "yakalama",
+      model: "Mood · 2 × 15W · Paslanmaz çelik",
+    },
+    principle: {
+      sectionLabel: "Prensip", lead: "Böceklerin peşinden gitmiyoruz.", emphasis: "Gidecekleri yeri tasarlıyoruz.",
+      attract: { title: "Çek", description: "UV ışığı, uçan böcekleri insanlardan, gıdalardan ve üretim alanlarından uzaklaştırır." },
+      capture: { title: "Yakala", description: "Yüksek yapışma gücüne sahip, UV dayanımlı levhalar temiz ve göze çarpmayan bir yakalama noktası oluşturur." },
+      control: { title: "Kontrol et", description: "Amaca özel modeller; konaklama, perakende ve endüstriyel ortamlara uyum sağlar." },
+    },
+    productsSection: { sectionLabel: "Ürün sistemi", title: "Ödün vermeye yer olmayan alanlar için üretildi.", description: "Beş farklı çözüm. Akıllı uçan haşere kontrolünde tek standart.", view: "Ürünü incele" },
+    products: {
+      Mood: { type: "Duvara monte", details: "Paslanmaz çelik · 2 × 15W Dudexa UV lambası", tag: "Konaklama" },
+      Magnet: { type: "Duvara monte", details: "Paslanmaz çelik · 2 × 15W Dudexa UV lambası", tag: "Müşteri alanları" },
+      Pro202: { type: "Tavana asılı", details: "2 × 18W UV lambası · 30 × 60 cm yapışkan levha", tag: "Perakende" },
+      "Fli-X": { type: "Duvara monte", details: "Boyalı alüminyum · 2 × 15W Dudexa UV lambası", tag: "Ticari alanlar" },
+      Prolit: { type: "Endüstriyel", details: "304 paslanmaz çelik · 2 × 18W Dudexa UV lambası", tag: "Üretim" },
+    },
+    ecosystem: {
+      sectionLabel: "Ekosistem", title: "Bir ışık tuzağından fazlası.", description: "Çekim kaynağından sürekli ekipman yönetimine kadar eksiksiz bir çalışma sistemi.",
+      glueBoards: { category: "Sarf malzemesi / 01", title: "UV dayanımlı yapışkan levhalar", description: "30 × 60 cm, 30 × 54 cm ve diğer ölçülerde yüksek yapışma gücü ve uzun kullanım ömrü.", action: "Ölçüleri isteyin" },
+      uvLamps: { category: "Bileşen / 02", title: "Uzun ömürlü UV lambaları", description: "Profesyonel ILT cihazlarında kalıcı çekim gücü ve güvenilir performans için geliştirildi.", action: "Uygun lambayı bulun" },
+      tracquipment: { category: "Platform / 03", title: "Tracquipment", description: "Uçan haşere ışık tuzaklarını ve kiralama sözleşmelerini amaca özel dijital araçla yönetin.", action: "Platformu ziyaret edin" },
+    },
+    contact: {
+      location: "Düsseldorf, Almanya", title: "Alanınızı uçuşa yasak bölgeye çevirelim.", description: "Tesisinizi, işletmenizi veya teknik ihtiyacınızı anlatın. Dudexa ekibi doğru sistemi seçmenize yardımcı olsun.", officeHours: "Çalışma saatleri",
+      nameLabel: "Adınız", namePlaceholder: "Ayşe Yılmaz", emailLabel: "İş e-postanız", emailPlaceholder: "ayse@sirket.com",
+      messageLabel: "Tesisinizden bahsedin", messagePlaceholder: "Alan türü, yaklaşık büyüklüğü ve ihtiyacınız…", submit: "Talebi gönderin", sending: "Gönderiliyor…", success: "Teşekkürler. Talebiniz Dudexa ekibine ulaştı.", error: "Talep gönderilemedi. Lütfen info@dudexa.com adresine yazın.",
+      emailNotice: "Talebiniz Dudexa satış ekibi için güvenli biçimde kaydedilir.",
+    },
+    footer: { statement: "Uçan haşere kontrol teknolojileri.\nBilimle tasarlandı.", email: "E-posta" },
+    accessibility: {
+      home: "Dudexa ana sayfa", primaryNavigation: "Ana navigasyon", exploreProducts: "Ürünleri keşfedin",
+      captureStage: "Işık tuzağına çekilen uçan böcekleri gösteren animasyon", productImage: "Dudexa {name} uçan haşere ışık tuzağı",
+      askAboutProduct: "Dudexa {name} hakkında bilgi alın", languageSelector: "Dil seçin",
+    },
+  },
+  zh: {
+    locale: "zh-CN",
+    navigation: { science: "科学原理", products: "产品", planner: "覆盖规划", knowledge: "知识中心", contact: "联系我们", startProject: "启动项目" },
+    transition: { message: "正在打开知识中心" },
+    hero: {
+      eyebrow: "自 2008 年起，以工程塑造吸引力", titleLine1: "科学", titleLine2: "应对飞虫。",
+      description: "专业飞虫防控系统，德国工程设计，性能强悍，外观同样出众。", liveSimulation: "实时捕获模拟", interceptions: "次捕获",
+      model: "Mood · 2 × 15W · 不锈钢",
+    },
+    principle: {
+      sectionLabel: "核心原理", lead: "我们不追逐飞虫。", emphasis: "我们设计它们的终点。",
+      attract: { title: "吸引", description: "紫外光将飞虫从人员、食品与生产区域引向设备。" },
+      capture: { title: "捕获", description: "高粘性、耐紫外线的粘虫板构成洁净而隐蔽的捕获区域。" },
+      control: { title: "管控", description: "专为不同场景打造的设备，适用于酒店餐饮、零售与工业环境。" },
+    },
+    productsSection: { sectionLabel: "产品体系", title: "为不容妥协的场所而打造。", description: "五款专业设备，同一个智能飞虫防控标准。", view: "查看产品" },
+    products: {
+      Mood: { type: "壁挂式", details: "不锈钢 · 2 × 15W Dudexa UV 灯管", tag: "酒店餐饮" },
+      Magnet: { type: "壁挂式", details: "不锈钢 · 2 × 15W Dudexa UV 灯管", tag: "前场区域" },
+      Pro202: { type: "吊装式", details: "2 × 18W UV 灯管 · 30 × 60 cm 粘虫板", tag: "零售" },
+      "Fli-X": { type: "壁挂式", details: "喷涂铝材 · 2 × 15W Dudexa UV 灯管", tag: "商业空间" },
+      Prolit: { type: "工业级", details: "304 不锈钢 · 2 × 18W Dudexa UV 灯管", tag: "生产区域" },
+    },
+    ecosystem: {
+      sectionLabel: "完整生态", title: "不止是一台诱捕灯。", description: "从吸引光源到设备持续管理，一套完整的工作系统。",
+      glueBoards: { category: "耗材 / 01", title: "耐紫外线粘虫板", description: "提供 30 × 60 cm、30 × 54 cm 及其他规格，粘性强、使用寿命长。", action: "获取规格" },
+      uvLamps: { category: "组件 / 02", title: "长寿命 UV 灯管", description: "专为专业 ILT 设备设计，持续保持吸引力与可靠性能。", action: "匹配灯管" },
+      tracquipment: { category: "平台 / 03", title: "Tracquipment", description: "通过专用数字工具管理飞虫诱捕灯和租赁合同。", action: "访问平台" },
+    },
+    contact: {
+      location: "德国杜塞尔多夫", title: "让您的空间成为飞虫禁区。", description: "告诉我们您的场地、业务或技术难题，Dudexa 团队将为您匹配合适的系统。", officeHours: "办公时间",
+      nameLabel: "您的姓名", namePlaceholder: "王女士", emailLabel: "工作邮箱", emailPlaceholder: "wang@company.com",
+      messageLabel: "请介绍您的场地", messagePlaceholder: "场地类型、大致面积及您的需求…", submit: "发送咨询", sending: "正在发送…", success: "谢谢。您的咨询已发送给 Dudexa 团队。", error: "发送失败。请发送邮件至 info@dudexa.com。",
+      emailNotice: "您的咨询将安全记录并交由 Dudexa 销售团队处理。",
+    },
+    footer: { statement: "飞虫防控技术。\n以科学设计。", email: "邮件" },
+    accessibility: {
+      home: "Dudexa 首页", primaryNavigation: "主导航", exploreProducts: "浏览产品", captureStage: "展示飞虫被诱捕灯吸引的动画演示",
+      productImage: "Dudexa {name} 飞虫诱捕灯", askAboutProduct: "咨询 Dudexa {name}", languageSelector: "选择语言",
+    },
+  },
+} as const;

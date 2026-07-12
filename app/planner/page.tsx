@@ -1,0 +1,27 @@
+"use client";
+
+import Link from "next/link";
+import { CSSProperties, PointerEvent, useEffect, useState } from "react";
+import { productCatalog, ProductSlug } from "../catalog";
+import { SalesShell } from "../components/sales-shell";
+
+type Point = { x: number; y: number };
+const initialPoints: Point[] = [{x:35,y:35},{x:68,y:65},{x:68,y:30},{x:30,y:70}];
+
+export default function PlannerPage() {
+  const [roomType,setRoomType]=useState("restaurant"); const [width,setWidth]=useState(8); const [length,setLength]=useState(10); const [slug,setSlug]=useState<ProductSlug>("magnet"); const [points,setPoints]=useState<Point[]>([initialPoints[0]]);
+  useEffect(()=>{ const value=new URLSearchParams(location.search).get("product") as ProductSlug|null; if(value&&productCatalog.some(p=>p.slug===value)) {
+    // Query parameters are available after hydration.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setSlug(value);
+  } },[]);
+  const product=productCatalog.find(p=>p.slug===slug)!; const area=Math.max(1,width*length); const factor=roomType==="production"?1.35:roomType==="hotel"?.85:1; const recommended=Math.max(1,Math.ceil((area*factor)/product.planningCoverage)); const coverage=Math.min(100,Math.round((points.length*product.planningCoverage/(area*factor))*100));
+  useEffect(()=>{
+    // Keep the visual plan aligned with the computed recommendation.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setPoints(initialPoints.slice(0,recommended));
+  },[recommended,slug]);
+  function drag(index:number,event:PointerEvent<HTMLButtonElement>){ const plan=event.currentTarget.parentElement!.getBoundingClientRect(); const x=Math.max(4,Math.min(96,((event.clientX-plan.left)/plan.width)*100)); const y=Math.max(5,Math.min(95,((event.clientY-plan.top)/plan.height)*100)); setPoints(current=>current.map((point,i)=>i===index?{x,y}:point)); }
+  const detail=`Room: ${roomType}, ${width}m × ${length}m (${area}m²). Product: ${product.name}. Devices placed: ${points.length}. Planning result: ${coverage}% coverage.`;
+  return <SalesShell>{language=>{ const c={tr:{k:"Alan Planlayıcı",title:"Cihazı odaya yerleştirin.",desc:"Oda ölçüsünü seçin, Dudexa modelini belirleyin ve cihazları planda sürükleyin.",room:"Mekân türü",w:"Genişlik (m)",l:"Uzunluk (m)",model:"Model",devices:"Cihaz adedi",result:"Planlama sonucu",enough:"Planlama için yeterli",gap:"Kör nokta riski var",quote:"Bu plan için teklif iste",note:"Bu araç ön planlama içindir; nihai yerleşim saha keşfiyle doğrulanmalıdır."},en:{k:"Coverage planner",title:"Place the device in your room.",desc:"Set room dimensions, choose a Dudexa model and drag devices across the plan.",room:"Space type",w:"Width (m)",l:"Length (m)",model:"Model",devices:"Device count",result:"Planning result",enough:"Planning coverage reached",gap:"Blind-spot risk remains",quote:"Request a quote for this plan",note:"This tool is for preliminary planning; final placement requires an on-site survey."},zh:{k:"覆盖规划器",title:"将设备放入房间。",desc:"设置房间尺寸，选择 Dudexa 型号并拖动设备调整位置。",room:"空间类型",w:"宽度（米）",l:"长度（米）",model:"型号",devices:"设备数量",result:"规划结果",enough:"已达到规划覆盖",gap:"仍有盲区风险",quote:"为此方案申请报价",note:"本工具仅用于初步规划，最终位置需现场勘察确认。"}}[language]; return <><section className="feature-hero"><span className="sales-kicker">{c.k}</span><h1>{c.title}</h1><p>{c.desc}</p></section><section className="planner-layout"><aside className="planner-controls"><label className="sales-field">{c.room}<select value={roomType} onChange={e=>setRoomType(e.target.value)}><option value="restaurant">Restaurant / Café</option><option value="hotel">Hotel</option><option value="retail">Retail</option><option value="production">Food production</option><option value="warehouse">Warehouse</option></select></label><label className="sales-field">{c.w}<input type="number" min="3" max="50" value={width} onChange={e=>setWidth(Number(e.target.value)||3)}/></label><label className="sales-field">{c.l}<input type="number" min="3" max="50" value={length} onChange={e=>setLength(Number(e.target.value)||3)}/></label><label className="sales-field">{c.model}<select value={slug} onChange={e=>setSlug(e.target.value as ProductSlug)}>{productCatalog.map(p=><option key={p.slug} value={p.slug}>{p.name} · ≈{p.planningCoverage}m²</option>)}</select></label><label className="sales-field">{c.devices}<input type="number" min="1" max="4" value={points.length} onChange={e=>setPoints(initialPoints.slice(0,Math.max(1,Math.min(4,Number(e.target.value)||1))))}/></label><div className="planner-summary"><span>{c.result}</span><strong>{coverage}%</strong><small>{coverage>=85?c.enough:c.gap}<br/>{recommended} × {product.name} recommended · {area}m²</small></div><Link className="sales-button" href={`/quote?product=${product.slug}&area=${area}&details=${encodeURIComponent(detail)}`}>{c.quote} ↗</Link><small>{c.note}</small></aside><div className="room-plan-wrap"><div className="room-plan">{points.map((point,index)=><button key={index} className="placed-device" aria-label={`${product.name} ${index+1}`} onPointerDown={e=>e.currentTarget.setPointerCapture(e.pointerId)} onPointerMove={e=>{if(e.currentTarget.hasPointerCapture(e.pointerId))drag(index,e)}} style={{left:`${point.x}%`,top:`${point.y}%`,"--radius":`${Math.max(120,Math.min(360,product.planningCoverage*2.4))}px`} as CSSProperties}><span>{product.name}</span></button>)}</div></div></section></>; }}</SalesShell>;
+}
