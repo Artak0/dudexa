@@ -6,6 +6,9 @@
   "assets": {
     "directory": "dist/client"
   },
+  "vars": {
+    "ADMIN_EMAILS": "kartaltahaaras@gmail.com"
+  },
   "d1_databases": [
     {
       "binding": "DB",
