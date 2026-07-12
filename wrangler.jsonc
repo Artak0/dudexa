@@ -5,5 +5,12 @@
   "compatibility_flags": ["nodejs_compat"],
   "assets": {
     "directory": "dist/client"
-  }
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "dudexa-db",
+      "database_id": "1c0bcda8-aaf3-4098-bd14-eeec8580ef65"
+    }
+  ]
 }
